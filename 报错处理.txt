@@ -1,0 +1,25 @@
+1   error  in ./src/router/index.js
+
+Module Error (from ./node_modules/eslint-loader/index.js):
+
+C:\Users\59378\toutiao-mm\src\router\index.js
+  4:1  error  More than 1 blank line not allowed  no-multiple-empty-lines
+
+✖ 1 problem (1 error, 0 warnings)
+  1 error and 0 warnings potentially fixable with the `--fix` option.
+
+
+ @ ./src/main.js 7:0-30 11:10-16
+ @ multi (webpack)-dev-server/client?http://192.168.1.15:8080&sockPath=/sockjs-node (webpack)/hot/dev-server.js ./src/main.js
+
+解决方法  在 .eslintrc.js 中处理 
+  extends: [
+    'plugin:vue/essential',
+    // '@vue/standard'
+  ],
+
+  rules: {
+    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off'，
+    'space-before-function-paren': 0
+  }
