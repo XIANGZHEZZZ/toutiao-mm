@@ -23,3 +23,17 @@ C:\Users\59378\toutiao-mm\src\router\index.js
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off'，
     'space-before-function-paren': 0
   }
+vant的样式怎么修改不了？
+在vue中写<style lang="scss" scoped> 时候都要加上这个 scoped 用于避免全局污染
+但是加上了scoped会导致无法修改 vant 框架组件中本身的样式但是scoped我们不能去掉
+即使写不了vant中的样式我们也不能去掉那么在怎么不去掉的情况下实现样式呢？
+如果有scss的话只要在原有的样式类前面加 /deep/ 即可
+.home-container{
+    /deep/.van-nav-bar__title{
+        max-width: unset;
+    }
+    .search-btn{
+        width: 555px;
+        height: 64px;
+    }
+}

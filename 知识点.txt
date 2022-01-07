@@ -1,0 +1,59 @@
+1 如何判断一个字符串中有指定的一个字符串 indexOf() 找不到返回值为 -1 操作如下： 
+  file.indexOf('vant')
+  C:\Users\59378\toutiao-mm\src\App.vue?vue&type=style&index=0&lang=less& -1
+  C:\Users\59378\toutiao-mm\node_modules\vant\lib\index.css 39
+
+2 三元表达式 file.indexOf('vant') !== -1 ? 37.5 : 75 // 不等于 ? 等于 : 
+  表示结果不为-1 赋值37.5 等于-1 赋值 75   
+
+3 GET 带参数传送
+// 验证手机号码 带参数 手机号
+export const sendSms = mobile => {
+    console.log(mobile);
+    return request({
+        method: 'GET',
+        url: '/v1_0/sms/codes/'+mobile,
+    }) 
+}
+
+4 本地存储token值 
+import Vue from 'vue'
+import Vuex from 'vuex'
+
+Vue.use(Vuex)
+
+const TOKEN_KEY = 'TOUTIAO_USER'
+
+export default new Vuex.Store({
+  state: {
+    // 用一个对象，存储当前登录用户信息（token 等信息） 存储的时候用的是字符串类型 转成为对象 JSON.parse() 
+    user: JSON.parse(window.localStorage.getItem(TOKEN_KEY))
+  },
+  mutations: {
+    setUser (state, data) {
+      state.user = data
+      // 为了防止刷新丢失数据，需要把数据备份到本地存储 存储格式为字符串类型 JSON.stringify()
+      window.localStorage.setItem(TOKEN_KEY, JSON.stringify(state.user))
+    }
+  },
+  actions: {
+  },
+  modules: {
+  }
+})
+
+页面使用
+const {data} = await login(user)
+this.$store.commit('setUser', data.data)
+
+5 背景图
+// background: url("../../assets/banner.png");
+// 在vuecli 创建的项目中 css中提供@别名 指向scr目录 前面加~才能用
+background: url("~@/assets/banner.png");
+background-size: cover; //将背景图片缩放填充到整个盒子中
+
+6 点击路由跳转 
+  <div class="login-btn" @click="$router.push('/login')">
+
+7 图标插槽及返回跳转页面
+ <van-icon slot="left" name="cross" @click="$router.back()" />

@@ -3,9 +3,22 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+// 加载 Vant 核心组件库
+import Vant from 'vant'
+
+// 加载 Vant 全局样式
+import 'vant/lib/index.css'
+
 // 导入全局样式
 import './styles/index.less'
 
+// 加载动态设置 REM 基准值
+import 'amfe-flexible'
+
+// import 中间不允许有其他组件
+
+// 注册使用 Vant 组件库
+Vue.use(Vant)
 Vue.config.productionTip = false
 
 new Vue({

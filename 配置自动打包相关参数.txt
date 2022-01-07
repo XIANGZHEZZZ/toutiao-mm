@@ -1,0 +1,13 @@
+package.json 中的配置
+
+--open 打包完成后自动打开浏览器页面
+
+--host 配置 IP 地址
+
+--port 配置端口
+
+ "scripts": {
+    "serve": "vue-cli-service serve --open --host 127.0.0.1 --port 8888",
+    // 用dev 命令打开 是 "dev": "vue-cli-service serve --open --host 127.0.0.1 --port 8888",
+    此项目是用 npm run serve
+  },

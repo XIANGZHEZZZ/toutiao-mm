@@ -2,6 +2,8 @@
   <div id="app">
     <!-- 路由出口不能删除 <router-view/> -->
     <router-view/>
+
+    
   </div>
 </template>
 
@@ -12,4 +14,6 @@ export default {
 </script>
 
 
-<style lang="less"></style>
+<style lang="less">
+
+</style>

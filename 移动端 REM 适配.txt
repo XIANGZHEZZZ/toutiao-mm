@@ -1,0 +1,41 @@
+1、安装 npm i amfe-flexible
+
+2、然后在 `main.js` 中加载执行该模块
+
+import 'amfe-flexible'
+
+最后测试：在浏览器中切换不同的手机设备尺寸，观察 html 标签 `font-size` 的变化。
+
+3 安装 npm install postcss-pxtorem -D
+
+4 然后在项目根目录中创建 .postcssrc.js 文件 文件内容如下：
+module.exports = {
+    plugins: {
+        // 兼容浏览器，添加前缀
+        autoprefixer: {
+            overrideBrowserslist: [
+                "Android 4.1",
+                "iOS 7.1",
+                "Chrome > 31",
+                "ff > 31",
+                "ie >= 8",
+                "last 10 versions",// 所有主流浏览器最近10版本用
+            ],
+            grid: true,
+        },
+        "postcss-pxtorem": {
+            rootValue: 37.5,//结果为：设计稿元素尺寸/16，比如元素宽320px,最终页面会换算成 20rem
+            propList: ["*"],//是一个存储哪些将被转换的属性列表，这里设置为['*']全部，假设需要仅对边框进行设置，可以写['*', '!border*']
+            unitPrecision: 5 ,//保留rem小数点多少位
+            replace: true,//这个真不知到干嘛用的。有知道的告诉我一下
+            mediaQuery: false, //媒体查询( @media screen 之类的)中不生效</span>
+            minPixelValue: 12, //px小于12的不会被转换 
+        }
+    }
+}
+
+这时候正常配置的话运行项目会出现错误 
+这时候你会发现你的postcss-pxtorem是6.xxx的版本,因为就是他的版本过高了,所以导致这个问题的出现
+
+你只需要把的版本降低到5.1.1就OK了 npm i postcss-pxtorem@5.1.1
+

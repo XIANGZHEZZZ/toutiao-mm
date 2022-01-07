@@ -1,0 +1,17 @@
+1 安装 axios
+    npm i axios
+
+2 创建 scr/utils/request.js 内容如下：
+
+import axios from "axios";
+
+const request = axios.create({
+    baseURL: 'http://ttapi.research.itcast.cn/' // 接口的基准路劲
+})
+
+// 请求拦截器
+
+// 响应拦截器
+
+// 导出基础接口
+export default request

@@ -1,0 +1,23 @@
+1、安装 Vant
+npm i vant
+
+
+
+2、在 main.js 中加载注册 Vant 组件
+import Vue from 'vue'
+
+// 加载 Vant 核心组件库
+import Vant from 'vant'
+
+// 加载 Vant 全局样式
+import 'vant/lib/index.css'
+
+Vue.use(Vant)
+
+例如我们在根组件使用 Vant 中的组件：
+
+```html
+<van-button type="default">默认按钮</van-button>
+
+```
+如果在页面中能够正常的看到下面的效果，则说明 Vant 导入成功了。

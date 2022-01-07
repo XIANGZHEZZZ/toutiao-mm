@@ -1,0 +1,18 @@
+1 使用Github账号登录iconfont.cn
+ 
+2 找到图标管理 -> 我的项目  -> 点击加号创建一个项目   
+
+3 根据提示创建项目 
+
+4 把本地的svg格式图标上传到项目中 点击去除颜色提交
+
+5 点击Fontoclass -> 点击生成代码 在浏览器中访问地址 把里面内容复制下来
+
+6 在项目中创建 icon.less 文件 把复制的代码粘贴到里面
+
+7 把icon.less 导入到全局样式文件中用@如下：
+    @import "./icon.less"; 
+    注意 ./icon.less 是路劲  ; 一定要带不然报错
+    使用方法 <i class="toutiao toutiao-shouye1"></i>
+
+
