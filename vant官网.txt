@@ -1,3 +1,30 @@
+//vant 官网
 https://youzan.github.io/vant/#/zh-CN/uploader
 
 接口文档 http://toutiao.itheima.net/api.html#u83b7u53d6u6587u7ae0u65b0u95fbu63a8u83500a3ca20id3du83b7u53d6u6587u7ae0u65b0u95fbu63a8u83503e203ca3e
+
+//day.js 时间格式化
+https://day.js.org/docs/zh-CN/installation/node-js
+
+
+<script>
+export default {
+	name: '',
+	components: {},
+	props: {},
+	data () {
+			return {
+			
+			}
+	},
+	computed: {},
+	watch: {},
+	created () {},
+	mounted () {},
+	methods: {}
+}
+</script>
+
+<style lang="less" scoped>
+
+</style>

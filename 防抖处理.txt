@@ -1,0 +1,21 @@
+安装包名
+npm i lodash
+
+import lodash from 'lodash' // 加载所有包
+import { debounce } from 'lodash' // 加载防抖处理包
+
+使用   watch: {
+      searchText: {
+        // debounce 函数
+        // 参数1：一个函数
+        // 参数2：延迟时间，单位是毫秒
+        // 返回值：防抖之后的函数
+        // handler (value) {
+        //  this.loadSearchSuggetion(value)
+        // },
+        handler: function(value) {
+          this.loadSearchSuggetion(value)
+        },
+        immediate: true   // 该回调将会在侦听开始之后被立即调用
+      }
+    },

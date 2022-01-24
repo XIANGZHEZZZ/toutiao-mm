@@ -15,8 +15,10 @@ import './styles/index.less'
 // 加载动态设置 REM 基准值
 import 'amfe-flexible'
 
-// import 中间不允许有其他组件
+// 加载 dayjs 初始化配置
+import './utils/dayjs'
 
+// import 中间不允许有其他组件
 // 注册使用 Vant 组件库
 Vue.use(Vant)
 Vue.config.productionTip = false

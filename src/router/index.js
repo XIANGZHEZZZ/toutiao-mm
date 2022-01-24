@@ -37,7 +37,24 @@ const routes = [
         component: () => import('@/views/my/index.vue')
       }
     ]
+  },
+  {
+    path: '/search',
+    name: 'search',
+    component: () => import('@/views/search/index.vue')
+  },
+  {
+    path: '/article/:articleId',
+    name: 'article',
+    component: () => import('@/views/article/index.vue'),
+    props: true // 开启 Props 传参，说白了就是把路由参数映射到组件的
+  },
+  {
+    path: '/user/profile',
+    name: 'profile',
+    component: () => import('@/views/user-profile/index.vue')
   }
+  
 ]
 
 const router = new VueRouter({

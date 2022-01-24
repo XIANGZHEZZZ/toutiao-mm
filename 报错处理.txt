@@ -37,3 +37,32 @@ vant的样式怎么修改不了？
         height: 64px;
     }
 }
+
+调接口出现404情况
+
+基本是前端问题：接口前面多出现一个空格   /  
+
+通过文章id发请求获取数据出现404 有可能是id超过json 计算范围 
+解决方案 安装 npm i json-bigint
+
+import JSONBig from 'json-bigint'
+
+const jsonStr = '{"art_id": 123456789987654321}'
+
+// json-bigint 提供两个方法 
+// JSONBig.stringify() 作用把 json 格式的字符串转为 javaScript 对象
+// JSONBig.parse() 作用 把 javaScript 对象转为 json 格式的字符串
+// 对比 JSON.parse() 和 JSONBig.parse() 转换 
+console.log(JSON.parse(jsonStr)); // 结果：123456789987654320
+console.log(JSONBig.parse(jsonStr));  // 结果：art_id: BigNumber {s: 1, e: 17, c: Array(2)}
+
+// 如何使用JSONBig.parse()
+// 把 BigNumber 类型的数据转为字符串来使用
+console.log(JSONBig.parse(jsonStr).art_id.toString()); // 结果：123456789987654321
+
+// 还原数据传给后端 如果后端有严格类型要求 还是得使用 JSONBig.stringify() 来处理
+console.log(JSON.stringify(JSONBig.parse(jsonStr))); // 结果：{"art_id":"123456789987654321"}
+console.log(JSONBig.stringify(JSONBig.parse(jsonStr))); // 结果：{"art_id":123456789987654321}
+
+图片 430 问题 可能是 Referer: http://127.0.0.1:8888/ 出错
+解决方案 添加 <meta name="referrer" content="no-referrer" />

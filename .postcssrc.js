@@ -25,6 +25,7 @@ module.exports = {
             replace: true,//这个真不知到干嘛用的。有知道的告诉我一下
             mediaQuery: false, //媒体查询( @media screen 之类的)中不生效</span>
             minPixelValue: 12, //px小于12的不会被转换 
+            exclude: 'markdown-body' // 配置不要转换的样式资源
         }
     }
 }
