@@ -1,27 +1,46 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
+// 路由表
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: HomeView
+    path: '/login',
+    name: 'login',
+    component: () => import('@/views/login/index.vue'),
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: '/',
+    // name: 'layout', 如果父路由有默认的子路由 那它的 name 没有意义
+    component: () => import('@/views/layout/index.vue'),
+    children: [
+      {
+        path: '', // 默认子路由，只能有一个 为空就是默认路由
+        name: 'home',
+        component: () => import('@/views/home/index.vue'),
+      },
+      {
+        path: 'qa',
+        name: 'qa',
+        component: () => import('@/views/wenda/index.vue'),
+      },
+      {
+        path: 'video',
+        name: 'video',
+        component: () => import('@/views/shipin/index.vue'),
+      },
+      {
+        path: '/my',
+        name: 'my',
+        component: () => import('@/views/my/index.vue'),
+      },
+    ],
   }
-]
+];
 
 const router = new VueRouter({
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;
